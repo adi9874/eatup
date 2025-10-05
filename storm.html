@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOK UP STORM</title>
+
+    <style>
+        body { 
+            margin: 0; 
+            background-color: #f8f8f8; 
+            color: #333; 
+        } 
+        h2, h3 { 
+            color: #2c3e50;
+        }
+        a { text-decoration: none; color: inherit; }
+        .nav a:hover, .f a:hover { color: #d9534f; }
+
+        .hc, .m, .fc, .pi { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding-left: 15px; 
+            padding-right: 15px;
+        }
+
+        .h { padding: 30px 0 15px; border-bottom: 1px solid #ddd; }
+        .hc { display: flex; justify-content: space-between; align-items: center; }
+        .name {color: #2c3e50; text-transform: uppercase; letter-spacing: 2px; }
+        .nav a { margin-left: 20px; font-size: 1rem; color: #2c3e50; text-transform: uppercase; }
+
+        .m { padding: 10px 15px 40px; min-height: 80vh; } 
+        .m > h3 { text-align: center; margin: 30px 0 20px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .m > div { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px; 
+        }
+
+        .card { background-color: #fff; text-align: center; }
+        .card img { width: 100%; height: 200px; object-fit: cover; display: block; margin-bottom: 5px; }
+        .card a > div { padding: 5px 10px 15px; }
+        .card h3 { margin: 5px 0 0 0; font-size: 1.1rem; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card p { font-size: 0.8rem; margin: 5px 0 0; color: #777; }
+
+        .p {
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; 
+            width: 100%; height: 100vh; 
+            overflow-y: auto; 
+            background-color: #fff; 
+            z-index: 900; 
+        }
+        .p:target { display: block; }
+        .pi { padding: 40px 15px; }
+
+        .pi h2 { color: #d9534f; margin: 10px 0 20px; font-size: 2rem; }
+        .pi h3 { color: #d9534f; margin: 25px 0 5px; font-size: 1.3rem; }
+        .pi img { width: 100%; max-height: 300px; object-fit: cover; margin-bottom: 20px; }
+        .pi ul { list-style: square; padding-left: 20px; }
+        .pi p { margin-bottom: 15px; }
+
+        .menu { 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            color: #d9534f; 
+            border: 1px solid #d9534f; 
+            padding: 6px 15px; 
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .f { background-color: #f8f8f8; color: #777; text-align: center; padding: 20px 15px; font-size: 0.8rem; border-top: 1px solid #eee; }
+        .f div { margin-bottom: 8px; }
+        .f div a { display: inline-block; margin: 0 10px; color: #777; text-transform: uppercase; font-size: 0.9rem; }
+        .f p { margin: 0; font-size: 0.75rem; }
+
+        @media (max-width: 768px) {
+            .m > div { grid-template-columns: repeat(2, 1fr); }
+            .hc { flex-direction: column; }
+            .nav { margin-top: 10px; }
+            .nav a { margin: 0 8px; }
+        }
+        @media (max-width: 500px) {
+            .m > div { grid-template-columns: 1fr; }
+            .name { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="h">
+        <div class="hc">
+            <a href="#mv" class="name">COOK UP STORM</a>
+            <nav class="nav">
+                <a href="#mv">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="m" id="mv">
+        <h3>RECIPIES</h3>
+        
+        <div>
+            <article class="card">
+                <a href="#toast">
+                    <img src="https://imgs.search.brave.com/RVRCWhghuPtOK4gGr5jDwtOC24b1z2v4VbiH2UGvpL4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaW1tZWRpYXRl/LmNvLnVrL3Byb2R1/Y3Rpb24vdm9sYXRp/bGUvc2l0ZXMvMi8y/MDE4LzA3L1Jvb3RM/ZWFmX1N3ZWV0Y29y/bkZyZW5jaFRvYXN0/V2l0aEJsdWViZXJy/aWVzXzAyLTMzN2Y4/OWQuanBnP3F1YWxp/dHk9OTAmcmVzaXpl/PTcwMCw0NjY" alt="FRENCH TOAST">
+                    <div>
+                        <h3>FRENCH TOAST</h3>
+                        <p>SWEETNESS OVERLOAD | HONEY COMFORT</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#ramen">
+                    <img src="https://imgs.search.brave.com/ws9sQMSNQpl7270jaHfxuPe9VcZtvqwvz3WFScSoqjE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvMzEz/OTM0NDQvcGV4ZWxz/LXBob3RvLTMxMzkz/NDQ0L2ZyZWUtcGhv/dG8tb2YtZGVsaWNp/b3VzLXJhbWVuLWJv/d2wtd2l0aC1lZ2ct/YW5kLW5hcnV0b21h/a2kuanBlZz9hdXRv/PWNvbXByZXNzJmNz/PXRpbnlzcmdiJmRw/cj0xJnc9NTAw" alt="RAMEN">
+                    <div>
+                        <h3>RAMEN</h3>
+                        <p>NOODLE NIRVANA | SOUL SOUP</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#sandwitch">
+                    <img src="https://i0.wp.com/twoandaknife.com/wp-content/uploads/2021/04/roasted_chicken_sandwich_3.jpegdone.jpg?w=1080&ssl=1" alt="SANDWICH">
+                    <div>
+                        <h3>SOURDOUGH CHICKEN SANDWICH</h3>
+                        <p>GOLDEN BITE | SPICY BLISS</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#biriyani">
+                    <img src="https://market-resized.envatousercontent.com/photodune.net/EVA/TRX/d0/65/2e/8e/a7/v1_E10/E108LISO.jpg?auto=format&q=94&mark=https%3A%2F%2Fassets.market-storefront.envato-static.com%2Fwatermarks%2Fphoto-260724.png&opacity=0.2&cf_fit=cover&w=590&s=5c1a9747075823546364f118155cec45ef741fd64caf5c6c8cfdce8029e6dc98" alt="BIRIYANI">
+                    <div>
+                        <h3>MUTTON BIRIYANI</h3>
+                        <p>JUICY MEAT | MUNCHING MASALA</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#chciken">
+                    <img src="https://tastejusthome.com/wp-content/uploads/2025/06/honey-garlic-chicken-wings-1-768x1365.jpg" alt="CHICKEN WINGS">
+                    <div>
+                        <h3>HONEY GARLIC CHICKEN</h3>
+                        <p>SWEET & SPICY | WINGS</p>
+                    </div>
+                </a>
+            </article>
+
+            <article class="card">
+                <a href="#custard">
+                    <img src="https://puddingparade.com/wp-content/uploads/2025/02/creamy_caramel_dessert_recipe.jpg" alt="custard">
+                    <div>
+                        <h3>CARAMEL CUSTARD</h3>
+                        <p>SWEET&SOFT | FRUITY</p>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </main>
+
+
+    <section id="toast" class="p">
+        <div class="pi">
+            <a href="#mv" class="menu">HOME</a> 
+            <h2>GOLDEN BROWN FRENCH TOAST</h2>
+            <img src="https://imgs.search.brave.com/RVRCWhghuPtOK4gGr5jDwtOC24b1z2v4VbiH2UGvpL4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaW1tZWRpYXRl/LmNvLnVrL3Byb2R1/Y3Rpb24vdm9sYXRp/bGUvc2l0ZXMvMi8y/MDE4LzA3L1Jvb3RM/ZWFmX1N3ZWV0Y29y/bkZyZW5jaFRvYXN0/V2l0aEJsdWViZXJy/aWVzXzAyLTMzN2Y4/OWQuanBnP3F1YWxp/dHk9OTAmcmVzaXpl/PTcwMCw0NjY" alt="FRENCH TOAST">
+            <h3>INGREDIENTS</h3>
+            <ul>
+                <li>4 slices of bread</li>
+                <li>2 large eggs</li>
+                <li>1/2 cup milk</li>
+                <li>1 teaspoon vanilla extract</li>
+                <li>1/2 teaspoon ground cinnamon</li>
+                <li>1 tablespoon butter</li>
+                <li>Maple syrup and powdered sugar for serving</li>
+            </ul>
+            <h3>INSTRUCTIONS</h3>
+            <p>1. In a shallow bowl, whisk together the eggs, milk, vanilla extract, and ground cinnamon until well combined.</p>
+            <p>2. Heat a large skillet or griddle over medium heat and add the butter, allowing it to melt and coat the surface.</p>
+            <p>3. Dip each slice of bread into the egg mixture, ensuring both sides are coated. Let any excess mixture drip off.</p>
+            <p>4. Place the coated bread slices onto the heated skillet and cook for about 2-3 minutes on each side, or until they are golden brown and cooked through.</p>
+            <p>5. Remove the French toast from the skillet and serve immediately with maple syrup and a dusting of powdered sugar.</p>
+        </div>
+    </section>
+
+    <section id="ramen" class="p">
+        <div class="pi">
+            <a href="#mv" class="menu">HOME</a>
+            <h2>DELICIOUS RAMEN BOWL</h2>
+            <img src="https://imgs.search.brave.com/ws9sQMSNQpl7270jaHfxuPe9VcZtvqwvz3WFScSoqjE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvMzEz/OTM0NDQvcGV4ZWxz/LXBob3RvLTMxMzkz/NDQ0L2ZyZWUtcGhv/dG8tb2YtZGVsaWNp/b3VzLXJhbWVuLWJv/d2wtd2l0aC1lZ2ct/YW5kLW5hcnV0b21h/a2kuanBlZz9hdXRv/PWNvbXByZXNzJmNz/PXRpbnlzcmdiJmRw/cj0xJnc9NTAw" alt="RAMEN">
+            <h3>INGREDIENTS</h3>
+            <ul>
+                <li>4 cups chicken broth</li>
+                <li>1 cup water</li>
+                <li>2 tablespoons soy sauce</li>
+                <li>1 teaspoon sesame oil</li>
+                <li>2 cloves garlic, minced</li>
+                <li>1-inch piece of ginger, grated</li>
+                <li>200g ramen noodles</li>
+                <li>Toppings: sliced green onions, soft-boiled eggs, nori (seaweed), cooked chicken or tofu, corn, bamboo shoots, mushrooms</li>
+            </ul>
+            <h3>INSTRUCTIONS</h3>
+            <p>1. In a large pot, combine the chicken broth, water, soy sauce, miso paste, sesame oil, minced garlic, and grated ginger. Bring to a boil over medium-high heat.</p>
+            <p>2. Reduce the heat to low and let the broth simmer for about 15 minutes to allow the flavors to meld together.</p>
+            <p>3. While the broth is simmering, cook the ramen noodles according to the package instructions. Drain and set aside.</p>
+            <p>4. Once the broth has simmered, taste and adjust the seasoning if needed. You can add more soy sauce for saltiness or a bit of sugar for sweetness.</p>
+            <p>5. To serve, divide the cooked ramen noodles into bowls. Ladle the hot broth over the noodles.</p>
+            <p>6. Add your desired toppings such as sliced green onions, soft-boiled eggs, nori, cooked chicken or tofu, corn, bamboo shoots, and mushrooms.</p>
+            <p>7. Serve immediately and enjoy your delicious bowl of ramen!</p>
+        </div>
+    </section>
+
+    <section id="sandwitch" class="p">
+        <div class="pi">
+            <a href="#mv" class="menu">HOME</a>
+            <h2>SOURDOUGH CHICKEN SANDWICH</h2>
+            <img src="https://i0.wp.com/twoandaknife.com/wp-content/uploads/2021/04/roasted_chicken_sandwich_3.jpegdone.jpg?w=1080&ssl=1" alt="SANDWICH">
+            <h3>INGREDIENTS</h3>
+            <ul>
+                <li>2 slices of sourdough bread</li>
+                <li>1 cup cooked chicken breast, shredded or sliced</li>
+                <li>1/4 cup mayonnaise</li>
+                <li>1 tablespoon Dijon mustard</li>
+                <li>1/4 cup lettuce leaves</li>
+                <li>2-3 slices of tomato</li>
+                <li>Salt and pepper to taste</li>
+                <li>4 tablespoon of BBQ sauce</li>
+                <li>Butter or olive oil for toasting the bread</li>
+            </ul>
+            <h3>INSTRUCTIONS</h3>
+            <p>1. In a bowl, combine the mayonnaise, Dijon mustard, and BBQ sauce. Mix well to create a flavorful spread.</p>
+            <p>2. Add the cooked chicken breast to the bowl and toss it with the mayo mixture until the chicken is well coated. Season with salt and pepper to taste.</p>
+            <p>3. Heat a skillet or griddle over medium heat. Lightly butter or brush olive oil on one side of each slice of sourdough bread.</p>
+            <p>4. Place one slice of bread, buttered side down, onto the skillet. Layer the chicken mixture evenly on top of the bread.</p>
+            <p>5. Add lettuce leaves, tomato slices, and cucumber slices on top of the chicken.</p>
+            <p>6. Place the second slice of bread on top, buttered side up.</p>
+            <p>7. Cook the sandwich for about 3-4 minutes on each side, or until the bread is golden brown and crispy, and the chicken is heated through.</p>
+            <p>8. Remove the sandwich from the skillet and let it cool for a minute before slicing it in half.</p>
+            <p>9. Serve the sourdough chicken sandwich immediately, and enjoy!</p>
+        </div>
+    </section>
+
+    <section id="biriyani" class="p">
+        <div class="pi">
+            <a href="#mv" class="menu">HOME</a>
+            <h2>MUTTON BIRIYANI</h2>
+            <img src="https://market-resized.envatousercontent.com/photodune.net/EVA/TRX/d0/65/2e/8e/a7/v1_E10/E108LISO.jpg?auto=format&q=94&mark=https%3A%2F%2Fassets.market-storefront.envato-static.com%2Fwatermarks%2Fphoto-260724.png&opacity=0.2&cf_fit=cover&w=590&s=5c1a9747075823546364f118155cec45ef741fd64caf5c6c8cfdce8029e6dc98" alt="BIRIYANI">
+            <h3>INGREDIENTS</h3>
+            <ul>
+                <li>500g mutton, cut into pieces</li>
+                <li>2 cups basmati rice</li>
+                <li>1 large onion, thinly sliced</li>
+                <li>2 tomatoes, chopped</li>
+                <li>1/4 cup plain yogurt</li>
+                <li>2 tablespoons ginger-garlic paste</li>
+                <li>1/4 cup chopped fresh cilantro (coriander leaves)</li>
+                <li>1/4 cup chopped fresh mint leaves</li>
+                <li>Whole spices: 4 green cardamom pods, 4 cloves, 2 bay leaves, 1 cinnamon stick, 1 teaspoon cumin seeds</li>
+                <li>1 teaspoon turmeric powder</li>
+                <li>1 teaspoon red chili powder</li>
+                <li>1 teaspoon garam masala powder</li>
+                <li>Salt to taste</li>
+                <li>4 cups water</li>
+                <li>Ghee or oil for cooking</li>
+            </ul>
+            <h3>INSTRUCTIONS</h3>
+            <p>1. Rinse the basmati rice under cold water until the water runs clear. Soak the rice in water for about 30 minutes, then drain and set aside.</p>
+            <p>2. In a large pot, heat ghee or oil over medium heat. Add the whole spices (cardamom, cloves, bay leaves, cinnamon stick, cumin seeds) and sauté for a minute until fragrant.</p>
+            <p>3. Add the sliced onions and cook until they turn golden brown. Remove half of the fried onions and set them aside for garnishing.</p>
+            <p>4. Add the ginger-garlic paste to the pot and sauté for a couple of minutes until the raw smell disappears.</p>
+            <p>5. Add the chopped tomatoes and cook until they become soft and mushy.</p>
+            <p>6. Add the mutton pieces to the pot and cook until they are browned on all sides.</p>
+            <p>7. Stir in the yogurt, turmeric powder, red chili powder, garam masala powder, and salt. Cook for a few minutes until the spices are well combined with the mutton.</p>
+            <p>8. Add the chopped cilantro and mint leaves, and mix well.</p>
+            <p>9. Add 4 cups of water to the pot and bring it to a boil. Reduce the heat to low, cover the pot, and let the mutton cook until it is tender (about 45 minutes to 1 hour).</p>
+            <p>10. In a separate large pot, bring water to a boil. Add a pinch of salt and the soaked basmati rice. Cook the rice until it is about 70% cooked (it should still have a bite to it). Drain the rice and set aside.</p>
+            <p>11. Once the mutton is cooked, layer the partially cooked rice over the mutton in the pot. Sprinkle the reserved fried onions on top.</p>
+            <p>12. Cover the pot with a tight-fitting lid and cook on low heat for about 20-25 minutes to allow the flavors to meld together and the rice to finish cooking.</p>
+            <p>13. Remove the pot from heat and let it sit, covered, for 10 minutes before serving.</p>
+            <p>14. Gently fluff the biryani with a fork before serving. Serve hot with raita or a side salad.</p>
+        </div>
+    </section>
+
+    <section id="chciken" class="p">
+        <div class="pi">
+            <a href="#mv" class="menu">HOME</a>
+            <h2>HONEY GARLIC CHICKEN WINGS</h2>
+            <img src="https://tastejusthome.com/wp-content/uploads/2025/06/honey-garlic-chicken-wings-1-768x1365.jpg" alt="CHICKEN WINGS">
+            <h3>INGREDIENTS</h3>
+            <ul>
+                <li>1 kg chicken wings</li>
+                <li>1/4 cup soy sauce</li>
+                <li>1/4 cup honey</li>
+                <li>3 cloves garlic, minced</li>
+                <li>1 tablespoon rice vinegar or apple cider vinegar</li>
+                <li>1 tablespoon olive oil or vegetable oil</li>
+                <li>1/2 teaspoon ground black pepper</li>
+                <li>Sesame seeds and chopped green onions for garnish (optional)</li>
+            </ul>
+            <h3>INSTRUCTIONS</h3>
+            <p>1. Preheat your oven to 200°C (400°F). Line a baking sheet with aluminum foil and place a wire rack on top. This will help the wings cook evenly and get crispy.</p>
+            <p>2. In a large bowl, combine the soy sauce, honey, minced garlic, rice vinegar, olive oil, and ground black pepper. Mix well to create the marinade.</p>
+            <p>3. Add the chicken wings to the bowl and toss them in the marinade until they are well coated. Let them marinate for at least 30 minutes, or up to 2 hours in the refrigerator for more flavor.</p>
+            <p>4. Arrange the marinated chicken wings on the wire rack in a single layer, making sure they are not touching each other.</p>
+            <p>5. Bake the wings in the preheated oven for about 25-30 minutes, flipping them halfway through the cooking time to ensure they cook evenly and get crispy on both sides.</p>
+            <p>6. If you want extra crispy wings, you can broil them for an additional 2-3 minutes at the end of the baking time. Just keep a close eye on them to prevent burning.</p>
+            <p>7. Once the wings are cooked through and crispy, remove them from the oven. Let them cool for a few minutes before serving.</p>
+            <p>8. Garnish with sesame seeds and chopped green onions if desired. Serve the honey garlic chicken wings hot with your favorite dipping sauce or as they are!</p>
+        </div>
+    </section>
+
+    <section id="custard" class="p">
+        <div class="pi">
+            <a href="#mv" class="menu">HOME</a>
+            <h2>CARAMEL CUSTARD</h2>
+            <img src="https://puddingparade.com/wp-content/uploads/2025/02/creamy_caramel_dessert_recipe.jpg" alt="custard">
+            <h3>INGREDIENTS</h3>
+            <ul>
+                <li>1 cup granulated sugar (for caramel)</li>
+                <li>4 large eggs</li>
+                <li>2 cups whole milk</li>
+                <li>1/2 cup granulated sugar (for custard)</li>
+                <li>1 teaspoon vanilla extract</li>
+                <li>A pinch of salt</li>
+            </ul>
+            <h3>INSTRUCTIONS</h3>
+            <p>2. In a saucepan over medium heat, melt 1 cup of granulated sugar until it turns into a golden-brown caramel. Be careful not to burn it. Once melted, quickly pour the caramel into the bottom of your custard molds or ramekins, swirling to coat the bottom evenly. Set aside to cool and harden.</p>
+            <p>3. In a mixing bowl, whisk together the eggs, 1/2 cup of granulated sugar, and a pinch of salt until well combined.</p>
+            <p>4. In a separate saucepan, heat the milk over medium heat until it is hot but not boiling. Remove from heat and stir in the vanilla extract.</p>
+            <p>5. Gradually pour the hot milk into the egg mixture while continuously whisking to prevent the eggs from curdling.</p>
+            <p>6. Strain the custard mixture through a fine-mesh sieve to remove any lumps or bubbles.</p>
+            <p>7. Pour the custard mixture over the hardened caramel in the molds or ramekins, filling them almost to the top.</p>
+            <p>8. Place the filled molds in a large baking dish and add hot water to the dish until it reaches halfway up the sides of the molds.</p>
+            <p>9. Bake in a preheated oven at 160°C (320°F) for about 45-50 minutes, or until the custard is set but still slightly jiggly in the center.</p>
+            <p>10. Remove the molds from the water bath and let them cool to room temperature. Then refrigerate for at least 2 hours or overnight to allow the custard to fully set.</p>
+            <p>11. To serve, run a knife around the edges of the custard to loosen it. Invert the molds onto serving plates, allowing the caramel to drizzle over the custard.</p>
+            <p>12. Enjoy your creamy and delicious caramel custard!</p>
+        </div>
+    </section>
+
+    <section id="about" class="p">
+        <div class="pi">
+            <a href="#mv" class="menu">HOME</a>
+            <h2>ABOUT US</h2>
+            <p>Welcome to Cook Up Storm, your ultimate destination for delicious recipes and culinary inspiration! We are passionate about food and believe that cooking is an art that brings people together. Our mission is to share mouthwatering recipes, cooking tips, and food-related content to help you create memorable meals in your own kitchen.</p>
+            <p>At Cook Up Storm, we understand that everyone has different tastes and dietary preferences. That's why we offer a diverse range of recipes, from quick and easy weeknight dinners to indulgent desserts and everything in between. Whether you're a seasoned chef or a beginner in the kitchen, you'll find something to suit your skill level and culinary interests.</p>
+            <p>Our team of food enthusiasts is dedicated to curating high-quality recipes that are not only delicious but also easy to follow. We believe that cooking should be enjoyable and accessible to everyone, so we strive to provide clear instructions, helpful tips, and beautiful food photography to inspire you along the way.</p>
+            <p>We also love hearing from our community! If you have any questions, recipe requests, or feedback, please don't hesitate to reach out to us. We value your input and are always looking for ways to improve and better serve our readers.</p>
+            <p>Thank you for visiting Cook Up Storm! We hope our recipes bring joy and flavor to your kitchen. Happy cooking!</p>
+        </div>
+    </section>
+
+    <section id="contact" class="p">
+        <div class="pi">
+            <a href="#mv" class="menu">HOME</a>
+            <h2>BE IN TOUCH</h2>
+            <p>If you have any questions, suggestions, or feedback, we'd love to hear from you! Please feel free to reach out to us using the contact information below:</p>
+            <p><strong>EMAIL:</strong> <a href="mailto:hey@cookupstorm.com" style="color: #d9534f; text-decoration: underline;">hey@cookupstorm.com</a></p>
+            <p>I'll try to get back to u as soon as possible.</p>
+            <p>Thank you for visiting Cook Up Storm!</p>
+        </div>
+    </section>
+
+    <footer class="f">
+        <div class="fc">
+            <div>
+                <a href="#mv">HOME</a>
+                <a href="#about">ABOUT</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+            <p>&copy; 2025 COOK UP STORM. All rights reserved to ME.</p>
+        </div>
+    </footer>  
+
+</body>
+</html>
